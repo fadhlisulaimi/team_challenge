@@ -1,0 +1,73 @@
+@media(min-width: 951px){
+
+    .person-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px,380px));
+        grid-gap: 10px;
+    }
+
+    .card-layout{
+        min-width: 0;
+        max-width: 400px;
+        overflow: hidden;
+      }
+
+      .card-icon-layout{
+          font-size: 25px;
+      }
+}
+
+@media (max-width: 950px){
+
+    .card-layout{
+        width: 90%;
+        margin-top:10px;
+    }
+
+    .card-icon-layout{
+        font-size: 30px;
+    }
+}
+
+.card-layout{
+    overflow: hidden;
+    transition: all 1s;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    border: 1px solid #f1e8c3;
+    background: #f1e8c3;
+}
+
+.card-layout:hover{
+  box-shadow: 0 0 11px #685707; 
+}
+
+.row{
+  display: flex;
+}
+
+.column{
+  float: left;
+}
+
+.left-layout{
+  width: 15%;
+}
+
+.right-layout{
+  width: 85%;
+}
+  
+.location-section{
+  margin-top:40px;
+}
+  
+.call-section{
+  display:flex;
+  justify-content: flex-end;
+  margin-top:20px;
+}
+  

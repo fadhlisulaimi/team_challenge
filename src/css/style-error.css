@@ -1,0 +1,19 @@
+.error-layout{
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.icon-layout{
+    font-size: 120px;
+    color: #846e09
+}
+
+.description-layout{
+    font-size: 20px;
+    color: #846e09;
+    margin-top: 10px
+}
