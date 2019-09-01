@@ -22,7 +22,7 @@ class App extends React.Component {
     //to purposely delaying the call
     setTimeout(function(){
       that._fetchUserData();
-    }, 0);
+    }, 2000);
   }
 
   _fetchUserData(){
@@ -53,7 +53,6 @@ class App extends React.Component {
   }
 
   _onHandleChange = (event) => {
-    var that  = this;
     let tmpList = [];
     if(event.target.value !== ""){
       tmpList = this.state.persons.filter(person => {
