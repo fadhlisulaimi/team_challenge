@@ -18,7 +18,7 @@ class ConfirmDialog extends React.Component{
                     onButtonClick={this.props.onCallButtonClick}
                     primaryColor = "#f1e8c3"
                     hoverColor = "green">
-                        Call {this.props.primaryDescription}
+                        {this.props.primaryDescription}
                     </Button>
                     <span style = {{marginLeft:"10px"}}></span>
                     {/* Close Button */}
@@ -28,7 +28,7 @@ class ConfirmDialog extends React.Component{
                     onButtonClick={this.props.onCancelButtonClick}
                     primaryColor = "#f1e8c3"
                     hoverColor = "#b1401d">
-                        Close
+                        {this.props.dangerDescription}
                     </Button>
                 </div>
                 </div>

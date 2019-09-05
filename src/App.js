@@ -11,7 +11,7 @@ class App extends React.Component {
   state = {
     isError: false,
     persons:[],
-    tempPersons: [],
+    filteredPersons: [],
     isSearchResultEmpty: false,
     dialogPhone: ""
   }
@@ -31,7 +31,7 @@ class App extends React.Component {
       this.setState(
         {
           persons: res.data,
-          tempPersons: res.data
+          filteredPersons: res.data
         }
         );
     })
@@ -53,22 +53,17 @@ class App extends React.Component {
   }
 
   _onHandleChange = (event) => {
-    let tmpList = [];
-    if(event.target.value !== ""){
-      tmpList = this.state.persons.filter(person => {
-        return person.name.toUpperCase().includes(event.target.value.toUpperCase()) 
-            || person.username.toUpperCase().includes(event.target.value.toUpperCase())
-            || person.email.toUpperCase().includes(event.target.value.toUpperCase());
-      })
-      
-    }else{
-      tmpList = this.state.tempPersons
-    }
+    let filteredPersons = this.state.persons;
+    filteredPersons = filteredPersons.filter(person => {
+      return person.name.toUpperCase().includes(event.target.value.toUpperCase()) 
+          || person.username.toUpperCase().includes(event.target.value.toUpperCase())
+          || person.email.toUpperCase().includes(event.target.value.toUpperCase());
+    })
 
     this.setState({
-      isSearchResultEmpty: tmpList.length === 0 ? true : false,
-      persons: tmpList
-    });
+      isSearchResultEmpty: filteredPersons.length === 0,
+      filteredPersons
+    })
   }
 
   _showMainLayout = (persons, isSearchResultEmpty) => {
@@ -83,7 +78,7 @@ class App extends React.Component {
         {
         isSearchResultEmpty 
         ?  <Error description="No results" />
-        :  <PersonList persons = {this.state.persons} onCallButtonClick={this._onCallButtonClick}/>
+        :  <PersonList persons = {this.state.filteredPersons} onCallButtonClick={this._onCallButtonClick}/>
         }
       </div>
       );
@@ -102,7 +97,7 @@ class App extends React.Component {
         title="Contact:"
         subHeading={phone} 
         onCancelButtonClick = {this._onCancelButtonClick}
-        primaryDescription = {phone}
+        primaryDescription = {"Call " + phone}
         dangerDescription = "Close"
       />;
     }
